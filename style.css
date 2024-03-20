@@ -9,6 +9,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Madimi One" , sans-serif;
 } 
 
 .heading{
@@ -21,19 +22,22 @@ body{
 /* Main Heading */
 .bigSkatch{
   font-size: 6rem;
+  color: #ffb703;
 }
 
 /* Main Wrapper */
 .wrapper{
   display: flex;
   gap: 10rem;
+  padding-top: 5rem;
 }
-/* left side */
-.left{
+
+/* Buttons */
+.buttons{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 .currentGridText{
   color: white;
@@ -47,15 +51,29 @@ body{
   border: 1px solid white;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn:hover{
+  scale: 1.1;
+}
+.colorInput{
+  background-color: black;
+  border: 0px;
+  height: 40px;
+  width: 60px;
 }
 
-
-
-
-/* will be removed after js update */
-.test{ 
-  background-color: red;
-  width: 500px;
-  height: 500px;
+/* Grid */
+.grid{
+  display: grid;
+  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(16, 1fr);
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+}
+.cell{
+  border: 1px solid black;
+  background-color: lightgray;
 }
 
