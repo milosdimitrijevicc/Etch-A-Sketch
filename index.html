@@ -20,8 +20,11 @@
     <button class="btn randomMode">Random Mode</button>
     <button class="btn eraser">Eraser</button>
     <button class="btn clear">Clear</button>
-    <p class="currentGridText">16 x 16</p>
-    <input type="range" class="inputRange">
+    <!-- <p class="currentGridText">4</p>
+    <input type="range" class="inputRange"> -->
+
+    <input id="rangeInput" type="range" min="4" max="64" step="1">
+    <p>Value: <output id="value"></output></p>
   </div>
 
   <div class="grid"> </div>
