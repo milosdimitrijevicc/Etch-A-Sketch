@@ -1,4 +1,5 @@
 const grid = document.querySelector('.grid');
+const randomButton = document.querySelector('.randomMode');
 
 //State
 const sketchCreator = () => {
@@ -21,9 +22,9 @@ const game = sketchCreator();
 //Citanje vrednosti sa range elememnta 
 const value = document.querySelector("#value");
 const input = document.querySelector("#rangeInput");
-value.textContent = input.value;
+value.textContent = `${input.value} x ${input.value}`;
 input.addEventListener("input", (event) => {
-  value.textContent = event.target.value;
+  value.textContent = `${event.target.value} x ${event.target.value}`;
   createGrid(parseInt(event.target.value));
 });
 
@@ -36,15 +37,32 @@ const createGrid = (number) =>{
   grid.style.gridTemplateColumns = `repeat(${number}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${number}, 1fr)`;
 
+  let cell;
+
   for (let i = 0; i < number * number; i++) {
-    const cell = document.createElement('div');
+    cell = document.createElement('div');
     cell.classList.add('cell');
     grid.appendChild(cell);
 
+   //Starting point  
+   cell.addEventListener('mouseover', function(){
+    cell.style.backgroundColor = game.getCurrentColor();
+  });
+
+
+
+  }
+
+ 
+//Random color
+  randomButton.addEventListener('click' , function(){
+    game.setCurrentColor(game.randomRGB())
+    console.log(game.randomRGB());
+    console.log(game.getCurrentColor());
     cell.addEventListener('mouseover', function(){
       cell.style.backgroundColor = game.getCurrentColor();
     });
-  }
+  });
 };
 
 createGrid(parseInt(value.textContent));
